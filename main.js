@@ -7,7 +7,7 @@ HomeInventoryDatabase.stuff = [];
 const ottoman = {
   name: "The Ottoman Emperor",
   location: "Living room",
-  description: "This ottoman is basically the best ottoman ever: it is large and soft, looks nice, and can be use for so many things"
+  description: "This ottoman is basically the best ottoman ever: it is large and soft, looks nice, and can be used for so many things"
 }
 HomeInventoryDatabase.furniture.push(ottoman);
 
@@ -42,11 +42,6 @@ HomeInventoryDatabase.furniture.push(table);
 const saveDatabase = (databaseObject, localStorageKey) => {
   const stringifiedDatabase = JSON.stringify(databaseObject);
   localStorage.setItem(localStorageKey, stringifiedDatabase);
-}
-
-const loadDatabase = (localStorageKey) => {
-  const databaseString = localStorage.getItem(localStorageKey);
-  return JSON.parse(databaseString);
 }
 
 saveDatabase(HomeInventoryDatabase, "HomeInventory");
