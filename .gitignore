@@ -8,3 +8,13 @@ obj
 *.db
 *.sqlite3
 .vscode
+node_modules
+.DS_Store
+bower_components
+__pycache__
+*.pyc
+bin
+obj
+*.db
+*.sqlite3
+.vscode
