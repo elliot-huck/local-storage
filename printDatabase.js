@@ -35,6 +35,39 @@ const getAllThings = () => {
   article.appendChild(fragment);
 }
 
-getAllThings();
+// getAllThings();
 
+const getSomeThings = (category) => {
+  const heading = document.createElement("h2");
+  heading.textContent = `${capitalizeFirst(category)}`;
+  fragment.appendChild(heading);
 
+  inventory[category].forEach(thing => { // goes through each thing in category
+    const section = document.createElement("section");
+    for (prop in thing) { // goes through all properties of a thing
+      const paragraph = document.createElement("p");
+      let placeholder = `${capitalizeFirst(prop)}: `
+      if (prop === "name") {
+        paragraph.style.fontWeight = "bold";
+        paragraph.style.textDecoration = "underline";
+        placeholder = "";
+      }
+      paragraph.textContent = `${placeholder}${thing[prop]}`;
+      section.appendChild(paragraph);
+    }
+    fragment.appendChild(section);
+  });
+
+const article = document.querySelector("#myThings");
+article.appendChild(fragment);
+}
+
+const getThings = (parameter) => {
+  if (parameter === undefined) {
+    getAllThings();
+  } else {
+    getSomeThings(parameter);
+  }
+}
+
+getThings();
