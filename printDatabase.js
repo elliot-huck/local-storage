@@ -10,12 +10,22 @@ const capitalizeFirst = (string) => {
 }
 
 const getAllThings = () => {
-  for (key in inventory) {
-    inventory[key].forEach(thing => {
+  for (key in inventory) { // goes through each category (e.g. furniture)
+    const heading = document.createElement("h2");
+    heading.textContent = `${capitalizeFirst(key)}`;
+    fragment.appendChild(heading);
+
+    inventory[key].forEach(thing => { // goes through each thing in category
       const section = document.createElement("section");
-      for (prop in thing) {
+      for (prop in thing) { // goes through all properties of a thing
         const paragraph = document.createElement("p");
-        paragraph.textContent = `${capitalizeFirst(prop)}: ${thing[prop]}`;
+        let placeholder = `${capitalizeFirst(prop)}: `
+        if (prop === "name") {
+          paragraph.style.fontWeight = "bold";
+          paragraph.style.textDecoration = "underline";
+          placeholder = "";
+        }
+        paragraph.textContent = `${placeholder}${thing[prop]}`;
         section.appendChild(paragraph);
       }
       fragment.appendChild(section);
@@ -26,4 +36,5 @@ const getAllThings = () => {
 }
 
 getAllThings();
+
 
