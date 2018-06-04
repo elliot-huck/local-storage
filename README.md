@@ -1,0 +1,1 @@
+Practice saving data to Local Storage with JSON
